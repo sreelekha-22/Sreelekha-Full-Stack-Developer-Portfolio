@@ -13,7 +13,7 @@ Features:
 
 * RESTful API with Spring Boot
 * URL hashing & redirection
-* MySQL/MongoDB storage
+* MongoDB storage
 * Clean DTO-layered architecture
 * Easy deployment-ready structure
 
