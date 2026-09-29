@@ -1,0 +1,22 @@
+# Keep line endings consistent between Windows checkouts and what GitHub Pages
+# actually serves. Without this, editing on Windows rewrites every line to CRLF
+# and the working tree silently diverges from the deployed site.
+* text=auto eol=lf
+
+*.html  text eol=lf
+*.css   text eol=lf
+*.js    text eol=lf
+*.json  text eol=lf
+*.md    text eol=lf
+*.svg   text eol=lf
+
+# Never touch binary assets.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.webp  binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
