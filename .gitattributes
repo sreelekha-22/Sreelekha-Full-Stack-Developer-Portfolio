@@ -11,6 +11,7 @@
 *.svg   text eol=lf
 
 # Never touch binary assets.
+*.pdf   binary
 *.png   binary
 *.jpg   binary
 *.jpeg  binary
