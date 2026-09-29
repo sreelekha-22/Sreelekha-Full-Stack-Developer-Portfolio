@@ -274,7 +274,8 @@
         <ul class="feats">
           <li><b>Multimodal analysis</b> — audio (Whisper STT) combined with video frames (MediaPipe) for facial expression &amp; confidence scoring</li>
           <li><b>Rich metrics</b> — fluency, coherence, vocabulary richness, grammar patterns, fillers &amp; pauses, sentiment/tone</li>
-          <li><b>Two-round protocol</b> — impromptu topic, then user-chosen topic, with CEFR-style complexity rating</li>
+          <li><b>Two-round protocol</b> — impromptu topic, then user-chosen topic</li>
+          <li><b>Honest scoring</b> — README separates the metrics that are really computed from the fields that are still hardcoded placeholders</li>
           <li><b>100% local</b> — Whisper, spaCy and MediaPipe run on-device; no API keys, all processing stays on your machine</li>
         </ul>
         <div class="tags">
@@ -360,7 +361,7 @@
         <ul class="feats">
           <li><b>Three-tier RBAC</b> — employees apply and track; managers approve/reject team requests; HR manages the roster and role assignment</li>
           <li><b>Modern state layer</b> — Redux Toolkit + RTK Query for caching, optimistic updates and normalized entities</li>
-          <li><b>Persistent balances</b> — 20 days per employee, tracked across sessions via localStorage</li>
+          <li><b>Persistent balances</b> — seeded leave balances adjusted automatically as requests are approved</li>
           <li><b>Typed end-to-end</b> — TypeScript across components, with protected routes gated by role</li>
         </ul>
         <div class="tags">
@@ -379,13 +380,13 @@
           <b>automated email notifications</b> for every confirmation and update.
         </p>
         <ul class="feats">
-          <li><b>Node + Express backend</b> with server-rendered EJS views</li>
-          <li><b>Automated comms</b> — email alerts on booking, reschedule and cancellation</li>
-          <li><b>Modular structure</b> — clean REST API separation, ready to deploy</li>
+          <li><b>Node + Express backend</b> with server-rendered EJS views and Mongoose models</li>
+          <li><b>Automated comms</b> — Nodemailer + Mailgen emails on booking, reschedule and cancellation</li>
+          <li><b>Two roles</b> — students and faculty each get a separate dashboard and auth flow</li>
         </ul>
         <div class="tags">
           <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">EJS</span>
-          <span class="tag">MongoDB</span><span class="tag">REST API</span>
+          <span class="tag">MongoDB</span><span class="tag">Passport</span>
         </div>
       </article>
 
@@ -395,17 +396,18 @@
           <span class="badge web">Full-Stack</span>
         </div>
         <p>
-          A full-stack video content platform with JWT authentication, filtering and a complete
-          admin CRUD surface.
+          A full-stack video content platform with a filterable video library and a full admin CRUD
+          surface. Built while still learning backend auth — the README documents its plaintext
+          passwords and un-enforced routes as known, named limitations.
         </p>
         <ul class="feats">
-          <li><b>JWT auth</b> — secure login with protected routes</li>
-          <li><b>Admin CRUD</b> — full content management for maintainers</li>
-          <li><b>Responsive UI</b> — dynamic, filterable catalogue experience</li>
+          <li><b>Admin CRUD</b> — full content management for maintainers (add / edit / delete / dashboard)</li>
+          <li><b>Two login flows</b> — separate user and admin sessions, with an explicit error state instead of a blank screen</li>
+          <li><b>Documented debt</b> — every security weakness is named in the README with the fix, not hidden</li>
         </ul>
         <div class="tags">
           <span class="tag">React</span><span class="tag">Express</span><span class="tag">MongoDB</span>
-          <span class="tag">JWT</span><span class="tag">MERN</span>
+          <span class="tag">Bootstrap</span><span class="tag">Formik</span>
         </div>
       </article>
 
@@ -415,17 +417,17 @@
           <span class="badge">Backend</span>
         </div>
         <p>
-          A URL shortening service in the spirit of Bitly — clean hashing, fast redirection, and a
-          strict DTO-layered Spring Boot architecture.
+          A URL shortening service in the spirit of Bitly — 8-character alphanumeric keys, fast
+          redirection, JWT-secured APIs and per-link click analytics.
         </p>
         <ul class="feats">
-          <li><b>RESTful Spring Boot API</b> with DTO-layered separation</li>
-          <li><b>URL hashing</b> for compact, collision-resistant keys</li>
-          <li><b>MongoDB</b> persistence with a deployment-ready structure</li>
+          <li><b>RESTful Spring Boot API</b> with DTO-layered separation and JPA persistence</li>
+          <li><b>JWT + Spring Security</b> — token issued at login and verified on every protected route</li>
+          <li><b>Click analytics</b> — every redirect records a click event, with per-URL and totals endpoints</li>
         </ul>
         <div class="tags">
-          <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MongoDB</span>
-          <span class="tag">REST API</span>
+          <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span>
+          <span class="tag">Spring Security</span><span class="tag">JWT</span>
         </div>
       </article>
 
