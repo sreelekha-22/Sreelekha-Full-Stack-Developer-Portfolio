@@ -116,7 +116,7 @@ URL shortening service with clean DTO-layered architecture, URL hashing, and fas
 Collection of applied ML projects across NLP and computer vision:
 
 - **Fake News Detection** — LSTM text classifier (~94% accuracy) behind a Flask API and React UI
-- **Medicinal Plant Detection** — **78-class** Ayurvedic plant identifier (Tulsi, Neem, Amla, Turmeric…) using VGG19 transfer learning
+- **Medicinal Plant Detection** — **80-class** Ayurvedic plant identifier (Tulsi, Neem, Amla, Turmeric…) using VGG19 transfer learning
 - **Poultry Disease Detection** — 4-class poultry condition classifier (coccidiosis, Newcastle, salmonella, healthy)
 
 - **Applied DL/CV**: Real-world datasets and practical use cases
