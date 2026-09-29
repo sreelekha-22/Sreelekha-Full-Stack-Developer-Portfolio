@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sreelekha Guda — Full-Stack Developer | React · Java · Python</title>
+<meta name="description" content="Full-stack developer building scalable applications with React, TypeScript, Java, Spring Boot, and Python. Portfolio of distributed systems, AI/ML, and web applications." />
+<meta name="author" content="Sreelekha Guda" />
+
+<meta property="og:title" content="Sreelekha Guda — Full-Stack Developer" />
+<meta property="og:description" content="Building scalable full-stack applications with React, Java, Spring Boot, and Python." />
+<meta property="og:type" content="profile" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --bg-alt: #0f1424;
+    --card: #151b2e;
+    --card-hover: #1a2138;
+    --line: #232c47;
+    --txt: #e8edf7;
+    --muted: #93a3c4;
+    --dim: #64748b;
+    --acc: #5ba3ff;
+    --acc-2: #7c5cff;
+    --green: #2fbf6f;
+    --orange: #ff9f43;
+    --pink: #ff5c8a;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--txt);
+    font: 16px/1.65 "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--acc); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .mono { font-family: "JetBrains Mono", monospace; }
+
+  /* ── NAV ── */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,14,26,.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+  .brand { font-weight: 700; font-size: 1.05rem; color: var(--txt); letter-spacing: -.01em; }
+  .brand span { color: var(--acc); }
+  .nav-links { display: flex; gap: 26px; }
+  .nav-links a { color: var(--muted); font-size: .92rem; font-weight: 500; }
+  .nav-links a:hover { color: var(--txt); text-decoration: none; }
+  @media (max-width: 640px) { .nav-links a:nth-child(n+3) { display: none; } }
+
+  /* ── HERO ── */
+  .hero { padding: 88px 0 72px; position: relative; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; top: -180px; left: 50%; transform: translateX(-50%);
+    width: 780px; height: 500px;
+    background: radial-gradient(ellipse, rgba(91,163,255,.13), transparent 68%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: .82rem; font-weight: 600; letter-spacing: .04em;
+    color: var(--acc); background: rgba(91,163,255,.09);
+    border: 1px solid rgba(91,163,255,.22);
+    padding: 5px 14px; border-radius: 999px; margin-bottom: 22px;
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); }
+  h1 { font-size: clamp(2.3rem, 6vw, 3.5rem); line-height: 1.1; letter-spacing: -.035em; font-weight: 800; margin-bottom: 20px; }
+  h1 .grad { background: linear-gradient(100deg, var(--acc), var(--acc-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p.lead { font-size: 1.13rem; color: var(--muted); max-width: 66ch; margin-bottom: 16px; }
+  .hero p.lead strong { color: var(--txt); font-weight: 600; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 22px; border-radius: 10px;
+    font-weight: 600; font-size: .95rem; border: 1px solid transparent;
+    transition: transform .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .btn:hover { text-decoration: none; transform: translateY(-2px); }
+  .btn.main { background: linear-gradient(100deg, var(--acc), var(--acc-2)); color: #fff; box-shadow: 0 6px 22px -8px rgba(91,163,255,.6); }
+  .btn.ghost { border-color: var(--line); color: var(--txt); background: var(--card); }
+  .btn.ghost:hover { border-color: var(--acc); }
+
+  /* ── STATS ── */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 14px; margin-top: 46px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; }
+  .stat .n { font-size: 1.7rem; font-weight: 800; letter-spacing: -.02em; color: var(--acc); }
+  .stat .l { font-size: .82rem; color: var(--muted); margin-top: 2px; }
+
+  /* ── SECTION ── */
+  section { padding: 60px 0; }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 26px; flex-wrap: wrap; }
+  h2 { font-size: 1.55rem; letter-spacing: -.02em; font-weight: 700; }
+  h2 .num { color: var(--acc); font-family: "JetBrains Mono", monospace; font-size: .95rem; margin-right: 10px; }
+  .sec-sub { color: var(--muted); font-size: .93rem; max-width: 60ch; }
+
+  /* ── PROJECT CARDS ── */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px,1fr)); gap: 18px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 24px; display: flex; flex-direction: column;
+    transition: border-color .2s ease, transform .2s ease, background .2s ease;
+  }
+  .card:hover { border-color: var(--acc); transform: translateY(-3px); background: var(--card-hover); }
+  .card.featured { grid-column: 1 / -1; border-color: rgba(91,163,255,.3); background: linear-gradient(160deg, rgba(91,163,255,.06), var(--card) 55%); }
+  .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+  .card h3 { font-size: 1.15rem; font-weight: 700; letter-spacing: -.01em; }
+  .card h3 a { color: var(--txt); }
+  .card h3 a:hover { color: var(--acc); text-decoration: none; }
+  .badge {
+    font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+    padding: 3px 9px; border-radius: 5px; white-space: nowrap; flex-shrink: 0;
+    background: rgba(91,163,255,.12); color: var(--acc); border: 1px solid rgba(91,163,255,.25);
+  }
+  .badge.ai { background: rgba(124,92,255,.12); color: #a78bfa; border-color: rgba(124,92,255,.28); }
+  .badge.web { background: rgba(47,191,111,.12); color: var(--green); border-color: rgba(47,191,111,.28); }
+  .card > p { color: var(--muted); font-size: .93rem; margin-bottom: 14px; }
+  .feats { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+  .feats li { position: relative; padding-left: 20px; font-size: .89rem; color: var(--muted); }
+  .feats li::before { content: "▸"; position: absolute; left: 2px; color: var(--acc); font-size: .8rem; }
+  .feats li b { color: var(--txt); font-weight: 600; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+  .tag { font-size: .74rem; padding: 3px 10px; border-radius: 999px; background: var(--bg-alt); border: 1px solid var(--line); color: var(--muted); }
+
+  /* ── STACK ── */
+  .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 16px; }
+  .stack-card { background: var(--bg-alt); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; }
+  .stack-card h4 { font-size: .78rem; text-transform: uppercase; letter-spacing: .07em; color: var(--acc); margin-bottom: 12px; font-weight: 700; }
+  .stack-card ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .stack-card li { color: var(--muted); font-size: .89rem; }
+  .stack-card li b { color: var(--txt); font-weight: 600; }
+
+  /* ── CONTACT ── */
+  .contact-box {
+    background: linear-gradient(150deg, rgba(91,163,255,.08), rgba(124,92,255,.05));
+    border: 1px solid rgba(91,163,255,.25); border-radius: 18px;
+    padding: 44px 40px; text-align: center;
+  }
+  .contact-box h2 { margin-bottom: 12px; }
+  .contact-box p { color: var(--muted); max-width: 52ch; margin: 0 auto 26px; }
+  .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+  footer { border-top: 1px solid var(--line); padding: 26px 0; margin-top: 40px; }
+  .foot { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; color: var(--dim); font-size: .85rem; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 56px 0 44px; }
+    .contact-box { padding: 32px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand">sreelekha<span>.</span>dev</a>
+    <nav class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+      <a href="https://github.com/sreelekha-22" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="dot"></span> Available for full-stack roles</span>
+    <h1>Sreelekha Guda<br><span class="grad">Full-Stack Developer</span></h1>
+    <p class="lead">
+      I build production-grade systems across the stack — from <strong>Kafka event-driven
+      microservices</strong> and <strong>Spring Boot backends</strong> to <strong>React frontends</strong>
+      and <strong>applied AI/ML</strong>. My flagship build is an autonomous incident-response
+      platform that detects, investigates and safely remediates production outages.
+    </p>
+    <div class="ctas">
+      <a class="btn main" href="https://github.com/sreelekha-22/Vykronis" target="_blank" rel="noopener">★ View Flagship Project</a>
+      <a class="btn ghost" href="https://github.com/sreelekha-22" target="_blank" rel="noopener">All GitHub repos</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/sreelekha-guda-051473243" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">9</div><div class="l">Spring Boot microservices</div></div>
+      <div class="stat"><div class="n">298</div><div class="l">Automated tests</div></div>
+      <div class="stat"><div class="n">6</div><div class="l">Kafka event topics</div></div>
+      <div class="stat"><div class="n">10+</div><div class="l">Shipped projects</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="num">01</span>Selected Work</h2>
+      <span class="sec-sub">Systems and applications I've designed, built and shipped.</span>
+    </div>
+    <div class="grid">
+
+      <article class="card featured">
+        <div class="card-top">
+          <h3><a href="https://github.com/sreelekha-22/Vykronis" target="_blank" rel="noopener">Vykronis — Autonomous Incident Response</a></h3>
+          <span class="badge">Flagship</span>
+        </div>
+        <p>
+          A closed-loop, human-gated incident-response platform. Detects production anomalies,
+          investigates root cause with a tool-constrained AI agent (with deterministic rule-based
+          fallback), gates every action through a fail-closed policy engine, and remediates only
+          after explicit human approval.
+        </p>
+        <ul class="feats">
+          <li><b>9 Spring Boot microservices</b> on 14 Maven modules, 13-container Docker Compose stack</li>
+          <li><b>Event-driven core</b> — 6 Kafka topics with versioned JSON-Schema contracts (metrics, traces, JFR, alerts, deployments, remediation)</li>
+          <li><b>Kafka Streams correlation engine</b> — 60s windowed detection with GlobalKTable deployment join, ranked severity</li>
+          <li><b>9-state incident state machine</b> persisted in PostgreSQL via Flyway; every transition auditable</li>
+          <li><b>Tool-constrained AI agent</b> — hypotheses never fabricated; deterministic fallback when infra degrades</li>
+          <li><b>Fail-closed policy matrix</b> — service-to-service automation denied for production; only a named human approver can authorize</li>
+          <li><b>Verified end-to-end</b> — 14-event synthetic burst drove OPEN → HYPOTHESIS_READY → AWAITING_APPROVAL → REMEDIATING in 0.8 min on a 7.9 GB laptop</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Java 25</span><span class="tag">Spring Boot 4</span><span class="tag">Spring Cloud</span>
+          <span class="tag">Apache Kafka</span><span class="tag">Kafka Streams</span><span class="tag">PostgreSQL</span>
+          <span class="tag">Flyway</span><span class="tag">Redis</span><span class="tag">Spring AI</span>
+          <span class="tag">Ollama</span><span class="tag">OpenTelemetry</span><span class="tag">Docker Compose</span>
+          <span class="tag">Helm / kind</span><span class="tag">GitHub Actions</span><span class="tag">Next.js</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3><a href="https://github.com/sreelekha-22/lessongen" target="_blank" rel="noopener">lessongen — Self-Evaluating Lesson Generator</a></h3>
+          <span class="badge ai">Agentic AI</span>
+        </div>
+        <p>
+          An agentic <b>generate → evaluate → regenerate</b> loop that writes a lesson, judges it
+          against a hard pass/fail rubric, and regenerates until it clears the bar — shipping the
+          verified lesson together with a full rejection-log audit trail.
+        </p>
+        <ul class="feats">
+          <li><b>13 checkpoints, no partial credit</b> — deterministic (textstat, wordfreq, parse) + LLM-judge hybrid</li>
+          <li><b>Self-evolving memory</b> — append-only JSONL event log; rubric thresholds adapt within hard caps, never removed</li>
+          <li><b>Audit the judge</b> — golden-set harness measures stability &amp; ground-truth agreement; unstable judges fail CI</li>
+          <li><b>Cost &amp; provenance</b> — token usage, USD estimate and git sha recorded per run</li>
+          <li><b>Model-agnostic</b> — LiteLLM across OpenAI / Anthropic / Ollama; deterministic stub runs offline with no API key</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">LangGraph</span><span class="tag">LiteLLM</span>
+          <span class="tag">Pydantic</span><span class="tag">LangSmith</span><span class="tag">pytest</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3><a href="https://github.com/sreelekha-22/LanguageProfilingApp_1" target="_blank" rel="noopener">Language Profiling Application</a></h3>
+          <span class="badge ai">AI / ML</span>
+        </div>
+        <p>
+          A full-stack app that records video, transcribes speech with OpenAI Whisper, and builds a
+          comprehensive language profile from two rounds of structured speaking.
+        </p>
+        <ul class="feats">
+          <li><b>Multimodal analysis</b> — audio (Whisper STT) combined with video frames (MediaPipe) for facial expression &amp; confidence scoring</li>
+          <li><b>Rich metrics</b> — fluency, coherence, vocabulary richness, grammar patterns, fillers &amp; pauses, sentiment/tone</li>
+          <li><b>Two-round protocol</b> — impromptu topic, then user-chosen topic, with CEFR-style complexity rating</li>
+          <li><b>100% local</b> — Whisper, spaCy and MediaPipe run on-device; no API keys, all processing stays on your machine</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">React</span><span class="tag">FastAPI</span><span class="tag">Python</span>
+          <span class="tag">Whisper</span><span class="tag">spaCy</span><span class="tag">MediaPipe</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3><a href="https://github.com/sreelekha-22/ML_projects/tree/main/Fake_News_DetectionHK" target="_blank" rel="noopener">Fake News Detection</a></h3>
+          <span class="badge ai">Deep Learning</span>
+        </div>
+        <p>
+          Real-time news classification web app that labels an article as real or fake, trained on
+          a Kaggle dataset with an LSTM model at roughly <b>94% accuracy</b>.
+        </p>
+        <ul class="feats">
+          <li><b>LSTM sequence model</b> — TensorFlow / Keras for text sequence classification</li>
+          <li><b>Full-stack delivery</b> — React frontend over a Flask inference API</li>
+          <li><b>Actionable output</b> — prediction plus a confidence score per request</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">React</span><span class="tag">Flask</span><span class="tag">Python</span>
+          <span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">LSTM</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3><a href="https://github.com/sreelekha-22/Absentra" target="_blank" rel="noopener">Absentra — Leave Management System</a></h3>
+          <span class="badge web">Full-Stack</span>
+        </div>
+        <p>
+          A responsive leave management system with role-based access for <b>Employees, Managers
+          and HR</b>, covering the full leave lifecycle from application to approval.
+        </p>
+        <ul class="feats">
+          <li><b>Three-tier RBAC</b> — employees apply and track; managers approve/reject team requests; HR manages the roster and role assignment</li>
+          <li><b>Modern state layer</b> — Redux Toolkit + RTK Query for caching, optimistic updates and normalized entities</li>
+          <li><b>Persistent balances</b> — 20 days per employee, tracked across sessions via localStorage</li>
+          <li><b>Typed end-to-end</b> — TypeScript across components, with protected routes gated by role</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Redux Toolkit</span>
+          <span class="tag">RTK Query</span><span class="tag">Vite</span><span class="tag">json-server</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3><a href="https://github.com/sreelekha-22/Appointments-Made-Easy" target="_blank" rel="noopener">Appointments Made Easy</a></h3>
+          <span class="badge web">Full-Stack</span>
+        </div>
+        <p>
+          A scheduling system that removes the back-and-forth of booking, with slot management and
+          <b>automated email notifications</b> for every confirmation and update.
+        </p>
+        <ul class="feats">
+          <li><b>Node + Express backend</b> with server-rendered EJS views</li>
+          <li><b>Automated comms</b> — email alerts on booking, reschedule and cancellation</li>
+          <li><b>Modular structure</b> — clean REST API separation, ready to deploy</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">EJS</span>
+          <span class="tag">MongoDB</span><span class="tag">REST API</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3><a href="https://github.com/sreelekha-22/WatchHub" target="_blank" rel="noopener">Watch Hub</a></h3>
+          <span class="badge web">Full-Stack</span>
+        </div>
+        <p>
+          A full-stack video content platform with JWT authentication, filtering and a complete
+          admin CRUD surface.
+        </p>
+        <ul class="feats">
+          <li><b>JWT auth</b> — secure login with protected routes</li>
+          <li><b>Admin CRUD</b> — full content management for maintainers</li>
+          <li><b>Responsive UI</b> — dynamic, filterable catalogue experience</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">React</span><span class="tag">Express</span><span class="tag">MongoDB</span>
+          <span class="tag">JWT</span><span class="tag">MERN</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3><a href="https://github.com/sreelekha-22/UrlShorty" target="_blank" rel="noopener">UrlShorty</a></h3>
+          <span class="badge">Backend</span>
+        </div>
+        <p>
+          A URL shortening service in the spirit of Bitly — clean hashing, fast redirection, and a
+          strict DTO-layered Spring Boot architecture.
+        </p>
+        <ul class="feats">
+          <li><b>RESTful Spring Boot API</b> with DTO-layered separation</li>
+          <li><b>URL hashing</b> for compact, collision-resistant keys</li>
+          <li><b>MongoDB</b> persistence with a deployment-ready structure</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MongoDB</span>
+          <span class="tag">REST API</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span class="num">02</span>Tech Stack</h2>
+      <span class="sec-sub">The tools I reach for, grouped by the job they do.</span>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <h4>Frontend</h4>
+        <ul>
+          <li><b>React</b> — hooks, component architecture</li>
+          <li><b>TypeScript</b> — typed, maintainable codebases</li>
+          <li><b>Redux Toolkit</b> + <b>RTK Query</b> — state &amp; data fetching</li>
+          <li><b>Vite</b> — fast builds and DX</li>
+          <li><b>EJS</b> — server-side templating</li>
+        </ul>
+      </div>
+      <div class="stack-card">
+        <h4>Backend</h4>
+        <ul>
+          <li><b>Java 25</b> · <b>Spring Boot 4</b> · <b>Spring Cloud</b></li>
+          <li><b>Node.js</b> · <b>Express</b></li>
+          <li><b>Python</b> · <b>FastAPI</b> · <b>Flask</b></li>
+          <li>REST APIs, MVC, DTO layering</li>
+          <li>Microservices, event-driven design</li>
+        </ul>
+      </div>
+      <div class="stack-card">
+        <h4>Data &amp; Messaging</h4>
+        <ul>
+          <li><b>PostgreSQL</b> + <b>Flyway</b> migrations</li>
+          <li><b>MongoDB</b></li>
+          <li><b>Redis</b> — learn store &amp; caching</li>
+          <li><b>Apache Kafka</b> · <b>Kafka Streams</b></li>
+          <li>JSON-Schema versioned contracts</li>
+        </ul>
+      </div>
+      <div class="stack-card">
+        <h4>AI / ML</h4>
+        <ul>
+          <li><b>TensorFlow</b> · <b>Keras</b> · <b>LSTM</b></li>
+          <li><b>OpenAI Whisper</b> · <b>spaCy</b> · <b>MediaPipe</b></li>
+          <li><b>LangGraph</b> · <b>LiteLLM</b> agent orchestration</li>
+          <li><b>Spring AI</b> · local models via <b>Ollama</b></li>
+          <li>Applied CV &amp; NLP on real datasets</li>
+        </ul>
+      </div>
+      <div class="stack-card">
+        <h4>DevOps &amp; Infra</h4>
+        <ul>
+          <li><b>Docker</b> · <b>Docker Compose</b></li>
+          <li><b>Helm</b> · <b>kind</b> (Kubernetes locally)</li>
+          <li><b>GitHub Actions</b> CI/CD</li>
+          <li>GraalVM native-image builds</li>
+          <li>Memory-budgeted, resource-constrained stacks</li>
+        </ul>
+      </div>
+      <div class="stack-card">
+        <h4>Observability</h4>
+        <ul>
+          <li><b>OpenTelemetry</b> tracing</li>
+          <li><b>JFR</b> streaming for diagnostics</li>
+          <li><b>Prometheus</b> · <b>Grafana</b></li>
+          <li>Optional <b>OpenSearch</b> evidence search</li>
+          <li>Structured audit trails</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <h2>Let's build something solid</h2>
+      <p>
+        I'm open to full-stack and backend engineering roles. If you're hiring and want to see how
+        I think about systems, I'd love to talk.
+      </p>
+      <div class="contact-links">
+        <a class="btn main" href="mailto:sreelekha2.guda@gmail.com">Email me</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/sreelekha-guda-051473243" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn ghost" href="https://github.com/sreelekha-22" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Sreelekha Guda — Full-Stack Developer</span>
+    <span class="mono">Hyderabad, Telangana, India</span>
+  </div>
+</footer>
+
+</body>
+</html>
