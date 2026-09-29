@@ -196,7 +196,7 @@
       <div class="stat"><div class="n">9</div><div class="l">Spring Boot microservices</div></div>
       <div class="stat"><div class="n">298</div><div class="l">Automated tests</div></div>
       <div class="stat"><div class="n">6</div><div class="l">Kafka event topics</div></div>
-      <div class="stat"><div class="n">10+</div><div class="l">Shipped projects</div></div>
+      <div class="stat"><div class="n">13</div><div class="l">Shipped projects</div></div>
     </div>
   </div>
 </div>
@@ -300,6 +300,51 @@
         <div class="tags">
           <span class="tag">React</span><span class="tag">Flask</span><span class="tag">Python</span>
           <span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">LSTM</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3><a href="https://github.com/sreelekha-22/ML_projects/tree/main/Med_Plant_Detection" target="_blank" rel="noopener">Medicinal Plant Detection</a></h3>
+          <span class="badge ai">Computer Vision</span>
+        </div>
+        <p>
+          A <b>78-class</b> Ayurvedic medicinal-plant identifier. Point a camera at a leaf and it tells
+          you whether that is <b>Tulsi</b>, <b>Neem</b>, <b>Amla</b>, <b>Turmeric</b>, <b>Ashoka</b>,
+          <b>Brahmi</b> or one of 73 others.
+        </p>
+        <ul class="feats">
+          <li><b>Transfer learning</b> — VGG19 backbone frozen, ImageNet weights, single <code>Dense(78, softmax)</code> head</li>
+          <li><b>Data augmentation</b> — rescale, shear, zoom, horizontal flip, 80/20 stratified split</li>
+          <li><b>Early stopping</b> — monitors <code>val_loss</code>, restores best weights</li>
+          <li><b>Trained on Colab T4</b> — notebook-driven, fully reproducible</li>
+          <li><b>Served via Flask</b> — upload page plus a <code>/predict</code> endpoint</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Keras</span>
+          <span class="tag">VGG19</span><span class="tag">OpenCV</span><span class="tag">Flask</span>
+          <span class="tag">Transfer Learning</span><span class="tag">Jupyter</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3><a href="https://github.com/sreelekha-22/ML_projects/tree/main/Poultry_disease_detection" target="_blank" rel="noopener">Poultry Disease Detection</a></h3>
+          <span class="badge ai">Computer Vision</span>
+        </div>
+        <p>
+          A 4-class image classifier for <b>early detection of disease in poultry flocks</b> — aimed at
+          catching coccidiosis, Newcastle disease and salmonellosis before they spread.
+        </p>
+        <ul class="feats">
+          <li><b>Classes</b> — <code>cocci</code> · <code>healthy</code> · <code>ncd</code> · <code>salmo</code></li>
+          <li><b>Same architecture</b> — frozen VGG19 + dense softmax head, trained on a separate dataset</li>
+          <li><b>Augmented training</b> — <code>ImageDataGenerator</code> with a 20% validation holdout</li>
+          <li><b>Early stopping</b> — <code>val_loss</code> monitored, best weights restored</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Keras</span>
+          <span class="tag">VGG19</span><span class="tag">OpenCV</span><span class="tag">Jupyter</span>
         </div>
       </article>
 
